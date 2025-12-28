@@ -1,33 +1,15 @@
-jsx
-import React from 'react';
-
 const FilterCafes = ({ onFilterChange }) => {
-  const subwayOptions = [
-    {
-      name: "Арбатская",
-      code: "Arbat",
-    },
-    {
-      name: "Александровский сад",
-      code: "Alexanders Garden",
-    },
-    {
-      name: "Московская",
-      code: "Moscow",
-    },
-    {
-      name: "Парк Культуры",
-      code: "Culture",
-    },
-    {
-      name: "Театральная",
-      code: "Theater",
-    },
+  const metroOptions = [
+    { name: "Арбатская", value: "Arbat" },
+    { name: "Александровский сад", value: "Alexanders Garden" },
+    { name: "Московская", value: "Moscow" },
+    { name: "Парк Культуры", value: "Culture" },
+    { name: "Театральная", value: "Theater" },
   ];
 
-  const handleChange = (e) => {
+  const handleChange = (event) => {
     if (onFilterChange) {
-      onFilterChange(e.target.value);
+      onFilterChange(event.target.value);
     }
   };
 
@@ -35,9 +17,9 @@ const FilterCafes = ({ onFilterChange }) => {
     <div className="controls">
       <select name="subway" id="subway" onChange={handleChange}>
         <option value="All">Все</option>
-        {subwayOptions.map((option) => (
-          <option key={option.code} value={option.code}>
-            {option.name}
+        {metroOptions.map((metro) => (
+          <option key={metro.value} value={metro.value}>
+            {metro.name}
           </option>
         ))}
       </select>
